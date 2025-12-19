@@ -4,6 +4,17 @@ import Footer from '../components/Footer';
 import ContactForm from '../components/ContactForm';
 import References from '../components/Reference1';
 
+// Ceramic Coating Video from public folder
+const ceramicCoatingVideo = '/images/Ceramic coating (1).mp4';
+
+// Ceramic Coating Images from public folder
+const financeitLogo = '/images/financeit.jpg.webp';
+const fusionPlusLite = '/images/XPEL FUSION PLUS LITE COATING.webp';
+const fusionPlusPaintPPF = '/images/XPEL FUSION PLUS PAINT& PPF COATING.webp';
+const fusionPlusPremium = '/images/XPEL FUSION PLUS PREMIUM COATING.webp';
+const protectVehicleLogo = '/images/PROTECT YOUR VEHICLE WITH XPEL FUSION PLUS CERAMIC COATING.webp';
+const fusionPlusProcess = '/images/FUSION PLUS ceamic coating.webp';
+
 // Ceramic Coating Quote Modal Component
 const CeramicCoatingQuoteModal = ({ isOpen, onClose, selectedPackage }) => {
   const [formData, setFormData] = useState({
@@ -664,7 +675,7 @@ const CeramicCoatings = ({ setCurrentView }) => {
         "Basic paint protection",
         "Professional application"
       ],
-      image: '/images/XPEL FUSION PLUS LITE COATING.webp',
+      image: fusionPlusLite,
       gradient: "from-blue-400 to-cyan-500",
       popular: false,
       id: 'fusion-plus-lite'
@@ -680,7 +691,7 @@ const CeramicCoatings = ({ setCurrentView }) => {
         "Maximum gloss enhancement",
         "Paint correction included"
       ],
-      image: '/images/XPEL FUSION PLUS PAINT& PPF COATING.webp',
+      image: fusionPlusPaintPPF,
       gradient: "from-cyan-500 to-blue-600",
       popular: true,
       id: 'fusion-plus-paint-ppf'
@@ -697,7 +708,7 @@ const CeramicCoatings = ({ setCurrentView }) => {
         "Full vehicle coverage",
         "Complimentary maintenance kit"
       ],
-      image: '/images/XPEL FUSION PLUS PREMIUM COATING.webp',
+      image: fusionPlusPremium,
       gradient: "from-blue-600 to-indigo-700",
       popular: false,
       id: 'fusion-plus-premium'
@@ -768,13 +779,13 @@ const CeramicCoatings = ({ setCurrentView }) => {
             webkit-playsinline="true"
             preload="metadata"
           >
-            <source src="/images/Ceramic coating (1).mp4" type="video/mp4" />
+            <source src={ceramicCoatingVideo} type="video/mp4" />
           </video>
         ) : (
           <div
             className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
             style={{
-              backgroundImage: `url(/images/Ceramic coating (1)-poster.jpg)`,
+              backgroundImage: `url(${ceramicCoatingVideo.replace('.mp4', '-poster.jpg')})`,
               transform: 'translateZ(0)',
               backfaceVisibility: 'hidden'
             }}
@@ -1040,7 +1051,7 @@ const CeramicCoatings = ({ setCurrentView }) => {
                 <div className="lg:w-1/2 lg:pl-8 xl:pl-12">
                   <div className="max-w-xs sm:max-w-sm md:max-w-md mx-auto hover:scale-105 transition-transform duration-300">
                     <img
-                      src="/images/PROTECT YOUR VEHICLE WITH XPEL FUSION PLUS CERAMIC COATING.webp"
+                      src={protectVehicleLogo}
                       alt="XPEL Logo"
                       className="w-full h-auto object-contain drop-shadow-lg"
                     />
@@ -1082,7 +1093,7 @@ const CeramicCoatings = ({ setCurrentView }) => {
 
                 <div className="lg:w-1/2 lg:pl-8 xl:pl-12 mt-6 lg:mt-0">
                   <img
-                    src="/images/FUSION PLUS ceamic coating.webp"
+                    src={fusionPlusProcess}
                     alt="Fusion Plus Ceramic Coating Process"
                     className="w-full h-auto object-contain rounded-lg shadow-lg sm:shadow-xl md:shadow-2xl border-2 sm:border-4 border-gray-200 hover:scale-105 transition-transform duration-300"
                   />
