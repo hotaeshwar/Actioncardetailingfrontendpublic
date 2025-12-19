@@ -20,16 +20,22 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22.x'  # Changed from '18' to '22.x'
+          cache: 'npm'          # Added for better performance
       
-      - name: Clean npm cache
-        run: npm cache clean --force
-      
-      - name: Remove node_modules and lock file
-        run: rm -rf node_modules package-lock.json
+      # Remove these cleaning steps - they're not needed
+      # - name: Clean npm cache
+      #   run: npm cache clean --force
+      # 
+      # - name: Remove node_modules and lock file
+      #   run: rm -rf node_modules package-lock.json
       
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm ci  # Changed from npm install --legacy-peer-deps to npm ci
+      
+      # Add this step to install the missing package
+      - name: Install @tailwindcss/vite
+        run: npm install @tailwindcss/vite --save-dev
       
       - name: Build application
         run: npm run build
